@@ -1,0 +1,53 @@
+body {
+    margin: 0 auto;
+    overflow-y: hidden;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;    
+}
+
+h1 {
+    font-family: 'Audiowide', cursive;
+}
+
+.image-container {
+    min-width: 60%;
+}
+
+.image-description {
+    padding: 5px 25px;
+}
+
+img {
+    width: auto;
+    height: 100vh;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 15px;
+    max-width: 150px;
+    align-self: center;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+p {    
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.75;
+}
+
+#submit {
+    padding: 10px;    
+    font-family: 'Roboto', sans-serif;
+}
