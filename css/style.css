@@ -4,8 +4,6 @@ body {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
     text-align: center;    
 }
 
@@ -31,12 +29,6 @@ img {
     flex-direction: column;
 }
 
-input {
-    margin: 15px;
-    max-width: 150px;
-    align-self: center;
-}
-
 .outer-container {
     display: flex;
     justify-content: space-around;
@@ -45,6 +37,10 @@ input {
 p {    
     font-family: 'Roboto', sans-serif;
     line-height: 1.75;
+}
+
+select {
+    padding: 10px;
 }
 
 #submit {
