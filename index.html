@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Roboto" rel="stylesheet"> 
 </head>
 <body>
+    <div id="rocket"></div>
     <div class="outer-container">
         <div class="inner-container">
             <!--Date Picker-->
@@ -31,12 +32,14 @@
                 <input type="number" name="quantity" min="1" id="day" class="input-area">
                 <input type="submit" value="Submit" id="submit">            
             </form> 
-            <h2 class="title"></h2>
-            <p class="date"></p>
             <div class="image-description"></div>
         </div>        
         <!--Image Display-->
-        <div class="inner-container image-container"></div>    
+        <div class="inner-container">
+            <div class="image-container"></div>
+            <h2 class="title"></h2>
+            <p class="date"></p>
+        </div>    
     </div>    
 </body>
 <script src="./js/script.js"></script>

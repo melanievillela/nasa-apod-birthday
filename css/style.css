@@ -18,6 +18,14 @@ h2 {
     margin: 10px;
 }
 
+.hide {
+    display: none;
+}
+
+.image-container {
+    padding: 25px;
+}
+
 .image-description {
     padding: 5px 25px;
 }
@@ -30,6 +38,11 @@ img {
 .inner-container {
     display: flex;
     flex-direction: column;
+    min-width: 50%;
+}
+
+.inner-container:nth-child(2) {
+    justify-content: flex-end;
 }
 
 .input-area {
@@ -39,8 +52,8 @@ img {
 
 .outer-container {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
+    height: 100vh;
 }
 
 p {    
@@ -54,6 +67,25 @@ p.date {
     margin-top: 0;
 }
 
+#rocket {
+    background-image: url("../rocket.png");
+    background-position: center;
+    background-size: contain;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move {
+    50%  {transform: translate(150px)};
+    100% {transform: translate(150px)};
+  }
+
 #submit {
     padding: 10px;  
     margin: 5px;  
@@ -61,13 +93,18 @@ p.date {
 }
 
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     h1 {
       font-size: 1.5em;
     }
 
     h2 {
         font-size: 1.25em;
+    }
+
+    .outer-container {
+        flex-direction: column-reverse;
+        height: 100%;
     }
 
     p {

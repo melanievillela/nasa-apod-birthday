@@ -40,6 +40,10 @@ function changeImage(year, month, day) {
     const birthday = `${year}-${month}-${day}`
     fetch(`https://api.nasa.gov/planetary/apod?api_key=vy77lplV6oEhKTgPSzAd8v819F14sxrZXTn028YX&date=${birthday}`)
     .then((response) => {
+        if(response.status === 200) {
+            let rocket = document.getElementById("rocket");
+            rocket.classList.add("hide");
+        }
         return response.json()
     })     
     .then((data) => {
