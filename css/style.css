@@ -2,6 +2,20 @@ body {
     margin: 0 auto;
 }
 
+#error {
+    background-image: url("../sad.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+
 form {
     text-align: center;    
     margin: 15px 0;

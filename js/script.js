@@ -43,6 +43,9 @@ function changeImage(year, month, day) {
         if(response.status === 200) {
             let rocket = document.getElementById("rocket");
             rocket.classList.add("hide");
+        } else if (response.status === 404 || response.status === 500) {
+            let error = document.getElementById("error");
+            error.classList.remove("hide");
         }
         return response.json()
     })     
