@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
 
 //Get random year
 function randomizeYear() {
-    const min = 1995;
+    const min = 1996;
     const max = date.getFullYear() + 1;
     return randomYear = Math.floor(Math.random() * (max - min) + min);
 }
@@ -50,24 +50,25 @@ function changeImage(year, month, day) {
         return response.json()
     })     
     .then((data) => {
-        console.log(data);
-        let date = data.date;
-        let description = data.explanation;
-        let image = data.url;
-        let title = data.title;
-        let imageContainer = document.querySelector(".image-container");
-        let imageDate = document.querySelector(".date");
-        let imageDescription = document.querySelector(".image-description");
-        let imageTitle = document.querySelector(".title");
         //If repsonse is undefined
-        if(description === undefined) {
+        if(data.code === 400) {
             error.classList.remove("hide");
+        } else {
+            let date = data.date;
+            let description = data.explanation;
+            let image = data.url;
+            let title = data.title;
+            let imageContainer = document.querySelector(".image-container");
+            let imageDate = document.querySelector(".date");
+            let imageDescription = document.querySelector(".image-description");
+            let imageTitle = document.querySelector(".title");
+
+            //Set image and paragraph info from API response
+            imageContainer.innerHTML = `<img src="${image}" alt="NASA APOD">`;
+            imageDate.innerText = date;
+            imageDescription.innerHTML = `<p>${description}</p>`;
+            imageTitle.innerText = title;
         }
-        //Set image and paragraph info from API response
-        imageContainer.innerHTML = `<img src="${image}" alt="NASA APOD">`;
-        imageDate.innerText = date;
-        imageDescription.innerHTML = `<p>${description}</p>`;
-        imageTitle.innerText = title;
     })   
     .catch((error) => {
         console.log("Error: ", error)
@@ -75,31 +76,3 @@ function changeImage(year, month, day) {
 }
 
 changeImage(`${date.getFullYear()}`, `${date.getMonth() + 1}`, `${date.getDate()}`);
-
-/*
-//Default call to NASA to get today's photo based on today's date
-fetch("https://api.nasa.gov/planetary/apod?api_key=vy77lplV6oEhKTgPSzAd8v819F14sxrZXTn028YX")
-    .then((response) => {
-        return response.json()
-    })     
-    .then((data) => {
-        let date = data.date;
-        let description = data.explanation;
-        let image = data.url;
-        let title = data.title;
-        let imageContainer = document.querySelector(".image-container");
-        let imageDate = document.querySelector(".date");
-        let imageDescription = document.querySelector(".image-description");
-        let imageTitle = document.querySelector(".title");
-        //Set image and paragraph info from API response
-        imageContainer.innerHTML = `<img src="${image}" alt="NASA APOD">`;
-        imageDate.innerText = date;
-        imageDescription.innerHTML = `<p>${description}</p>`;
-        imageTitle.innerText = title;
-    })   
-    .catch((error) => {
-        console.log("Error: ", error)
-    })   
-
-https://api.nasa.gov/planetary/apod?api_key=vy77lplV6oEhKTgPSzAd8v819F14sxrZXTn028YX&date=2018-12-25
-*/
