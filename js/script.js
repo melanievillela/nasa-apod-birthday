@@ -37,14 +37,14 @@ function randomizeYear() {
 
 //Set initial image to today's date then change when birthday is entered
 function changeImage(year, month, day) {
-    const birthday = `${year}-${month}-${day}`
+    const birthday = `${year}-${month}-${day}`;
+    const error = document.getElementById("error");
     fetch(`https://api.nasa.gov/planetary/apod?api_key=vy77lplV6oEhKTgPSzAd8v819F14sxrZXTn028YX&date=${birthday}`)
     .then((response) => {
         if(response.status === 200) {
-            let rocket = document.getElementById("rocket");
+            const rocket = document.getElementById("rocket");
             rocket.classList.add("hide");
-        } else if (response.status === 404 || response.status === 500) {
-            let error = document.getElementById("error");
+        } else if (response.status === 404 || response.status === 500) {            
             error.classList.remove("hide");
         }
         return response.json()
@@ -58,6 +58,10 @@ function changeImage(year, month, day) {
         let imageDate = document.querySelector(".date");
         let imageDescription = document.querySelector(".image-description");
         let imageTitle = document.querySelector(".title");
+        //If repsonse is undefined
+        if(description === undefined) {
+            error.classList.remove("hide");
+        }
         //Set image and paragraph info from API response
         imageContainer.innerHTML = `<img src="${image}" alt="NASA APOD">`;
         imageDate.innerText = date;
