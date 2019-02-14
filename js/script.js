@@ -50,6 +50,7 @@ function changeImage(year, month, day) {
         return response.json()
     })     
     .then((data) => {
+        console.log(data);
         let date = data.date;
         let description = data.explanation;
         let image = data.url;
