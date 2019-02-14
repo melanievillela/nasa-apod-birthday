@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
 //Get random year
 function randomizeYear() {
     const min = 1996;
-    const max = date.getFullYear() + 1;
+    const max = date.getFullYear();
     return randomYear = Math.floor(Math.random() * (max - min) + min);
 }
 
